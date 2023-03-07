@@ -34,6 +34,7 @@ public class servlet extends HttpServlet {
       throws IOException, ServletException {
 	  DAO ddao = new DAO();
 	  DeckDTO ddto = ddao.select();
+	    req.setAttribute("ddto", ddto);
 	  RequestDispatcher rd = req.getRequestDispatcher("/register.jsp");
 	  rd.forward(req, res);
 	  
