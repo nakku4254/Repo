@@ -19,4 +19,5 @@ public class DeckDTO implements Serializable{
     return list.size();
   }
 }
+//あ
 
