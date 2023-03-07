@@ -32,6 +32,10 @@ public class servlet extends HttpServlet {
   }
   public void doGet(HttpServletRequest req, HttpServletResponse res)
       throws IOException, ServletException {
-    doPost(req, res);
+	  DAO ddao = new DAO();
+	  DeckDTO ddto = ddao.select();
+	  RequestDispatcher rd = req.getRequestDispatcher("/register.jsp");
+	  rd.forward(req, res);
+	  
   }
 }
