@@ -36,7 +36,7 @@ public class DAO {
 		Statement stmt = null;
 		ResultSet rs = null;
 		DeckDTO ddto = new DeckDTO();
-		String sql = "SELECT * FROM decks";
+		String sql = "SELECT * FROM deck2";
 		try {
 			connect();
 			//㈪ステートメントを生成
@@ -46,7 +46,8 @@ public class DAO {
 			//㈬検索結果の処理
 			while (rs.next()) {
 				DeckBean db = new DeckBean();
-				db.setDeck(rs.getString("deckName"));
+				db.setId(rs.getInt("id"));
+				db.setDeck(rs.getString("name"));
 				db.setWin(rs.getInt("win"));
 				db.setLose(rs.getInt("lose"));
 				ddto.add(db);
@@ -67,10 +68,12 @@ public class DAO {
 		return ddto;
 	}
 
-	public int insert(String name, int win, int lose) {
-		String sql = "INSERT INTO decks VALUES ('" + name + "'," + win + "," + lose + ")";
+	public int insert(String name) {
+		String sql = "INSERT INTO deck2 (name) VALUES ('" + name + "')";
 		return executeSql(sql);
 	}
+	
+
 
 	/*
 	public int update(int no, String name, int score) {
@@ -106,4 +109,6 @@ public class DAO {
 		disconnect();
 		return result;
 	}
+
+
 }

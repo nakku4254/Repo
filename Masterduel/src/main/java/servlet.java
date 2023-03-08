@@ -19,7 +19,7 @@ public class servlet extends HttpServlet {
     String deck = req.getParameter("deck");
     //StudentDAOオブジェクトを生成
     DAO ddao = new DAO();
-    ddao.insert(deck,0,0);
+    ddao.insert(deck);
 
     
     //全件検索

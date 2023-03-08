@@ -9,6 +9,7 @@
 
 <table border="1">
   <tr>
+  	<th width="50">id</th>
     <th width="150">デッキ</th>
     <th width="50">win</th>
     <th width="50">lose</th>
@@ -18,6 +19,7 @@
     DeckBean db = ddto.get(i);
 %>
   <tr>
+    <td align="center"><%= db.getId() %></td>
     <td align="center"><%= db.getDeck() %></td>
     <td align="center"><%= db.getWin() %></td>
     <td align="center"><%= db.getLose() %></td>
