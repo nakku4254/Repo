@@ -75,18 +75,18 @@ public class DAO {
 	
 
 
-	/*
-	public int update(int no, String name, int score) {
-	String sql = "UPDATE student SET no = " + no + ", name = '" + name
-	               + "', score = " + score + " WHERE no = " + no;
-	return executeSql(sql);
-	}
 	
-	public int delete(int no) {
-	String sql = "DELETE FROM student WHERE no = " + no;
+//	public int update(int no, String name, int score) {
+//	String sql = "UPDATE student SET no = " + no + ", name = '" + name
+//	               + "', score = " + score + " WHERE no = " + no;
+//	return executeSql(sql);
+//	}
+	
+	public int delete(int id) {
+	String sql = "DELETE FROM deck2 WHERE id = " + id;
 	return executeSql(sql);
 	}
-	*/
+
 	public int executeSql(String sql) {
 		Statement stmt = null;
 		int result = 0;

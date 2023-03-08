@@ -36,6 +36,6 @@
 
 
 
-<a href="/Masterduel/registerDeck.html">戻る</a>
+
 </body>
 </html>
