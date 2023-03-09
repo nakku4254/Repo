@@ -16,13 +16,18 @@ public class DeckController extends HttpServlet {
 
 	    req.setCharacterEncoding("utf-8");
 	    String action = req.getParameter("action");
-	    String deckId = req.getParameter("deck");
+	    String[] deckIdName = req.getParameter("deck").split(" ");
+	    String deckId = deckIdName[0];
+	    String deckName = deckIdName[1];
 	    
 	    DAO ddao = new DAO();
 	    
 	    if(!(action == null)) {
 	    	if(action.equals("delete")) {	    		
-	    		ddao.delete(Integer.parseInt(deckId));
+	    		RequestDispatcher rd = req.getRequestDispatcher("/deckDeleteConfirm.jsp");
+	    		req.setAttribute("deckName", deckName);
+	    		req.setAttribute("deckId", deckId);	
+	    		rd.forward(req, res);
 	    	}else if(action.equals("create")) {
 	    		RequestDispatcher rd = req.getRequestDispatcher("/deckCreateForm.jsp");
 	    		rd.forward(req, res);

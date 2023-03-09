@@ -14,7 +14,7 @@
   <% for(int i= 0; i <  ddto.size() ; i++) {
   		DeckBean db = ddto.get(i); 
   %>
-  		 <option value="<%= db.getId() %>"><%= db.getDeck() %></option>
+  		 <option value="<%= db.getId() + " " + db.getDeck() %>"><%= db.getDeck() %></option>
   <% } %>
 </select>
 
