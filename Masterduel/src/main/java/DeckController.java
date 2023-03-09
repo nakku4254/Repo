@@ -20,7 +20,6 @@ public class DeckController extends HttpServlet {
 	    String deckId = deckIdName[0];
 	    String deckName = deckIdName[1];
 	    
-	    DAO ddao = new DAO();
 	    
 	    if(!(action == null)) {
 	    	if(action.equals("delete")) {	    		
@@ -35,20 +34,18 @@ public class DeckController extends HttpServlet {
 	    		
 	    	}
 	    }
- 
-	    //全件検索
-	    DeckDTO ddto = ddao.select();
-	    //リクエストスコープにDTOとmsgを格納
-	    req.setAttribute("ddto", ddto);	
-	    req.setAttribute("action", action);
-	    RequestDispatcher rd = req.getRequestDispatcher("/deckList.jsp");
-	    rd.forward(req, res);
   }
+  
   public void doGet(HttpServletRequest req, HttpServletResponse res)
       throws IOException, ServletException {
+	  
+
 	  DAO ddao = new DAO();
+	  //DB全検索
 	  DeckDTO ddto = ddao.select();
+
 	  req.setAttribute("ddto", ddto);
+
 	  RequestDispatcher rd = req.getRequestDispatcher("/deckManeger.jsp");
 	  rd.forward(req, res);
 	  
