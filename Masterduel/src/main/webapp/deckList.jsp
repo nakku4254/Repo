@@ -1,6 +1,7 @@
 <%@page contentType="text/html;charset=utf-8" %>
 <%@page import="bean.*" %>
 <jsp:useBean id ="ddto" scope="request" class="bean.DeckDTO" />
+<jsp:useBean id ="action" scope="request" class="java.lang.String" />
 <html>
   <head>
     <title>表示画面</title>
@@ -25,6 +26,8 @@
     <td align="center"><%= db.getLose() %></td>
   </tr>
 <% } %>
+
+<h2><%= action %></h2>
 </table><br />
 
 

@@ -16,7 +16,6 @@ public class DeckController extends HttpServlet {
 
 	    req.setCharacterEncoding("utf-8");
 	    String action = req.getParameter("action");
-	    String deck = req.getParameter("deckName");
 	    String deckId = req.getParameter("deck");
 	    
 	    DAO ddao = new DAO();
@@ -24,16 +23,19 @@ public class DeckController extends HttpServlet {
 	    if(!(action == null)) {
 	    	if(action.equals("delete")) {	    		
 	    		ddao.delete(Integer.parseInt(deckId));
+	    	}else if(action.equals("create")) {
+	    		RequestDispatcher rd = req.getRequestDispatcher("/deckCreateForm.jsp");
+	    		rd.forward(req, res);
+	    	}else {
+	    		
 	    	}
-	    }else {
-	    	ddao.insert(deck);
 	    }
  
 	    //全件検索
 	    DeckDTO ddto = ddao.select();
 	    //リクエストスコープにDTOとmsgを格納
-	    req.setAttribute("ddto", ddto);
-	    
+	    req.setAttribute("ddto", ddto);	
+	    req.setAttribute("action", action);
 	    RequestDispatcher rd = req.getRequestDispatcher("/deckList.jsp");
 	    rd.forward(req, res);
   }

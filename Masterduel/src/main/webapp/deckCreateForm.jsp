@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1>デッキの新規登録</h1>
-  <form action="/Masterduel/servlet" method="post">
+  <form action="/Masterduel/CreateServlet" method="post">
     <label>デッキ名:</label>
     <input type="text" name="deckName"><br>
     <input type="submit" value="登録">
