@@ -19,9 +19,10 @@
 </select>
 
 
-
-<input type="radio" name="action" value="delete" />削除　
 <input type="radio" name="action" value="create" />新規追加
+<input type="radio" name="action" value="read"/>一覧表示
+<input type="radio" name="action" value="update"/>勝敗登録
+<input type="radio" name="action" value="delete" />削除　
 <input type="submit" value="送信">
 
 

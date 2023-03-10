@@ -73,14 +73,17 @@ public class DAO {
 		return executeSql(sql);
 	}
 	
-
-
 	
-//	public int update(int no, String name, int score) {
-//	String sql = "UPDATE student SET no = " + no + ", name = '" + name
-//	               + "', score = " + score + " WHERE no = " + no;
-//	return executeSql(sql);
-//	}
+	public int update(int id, String winLose) {
+		String sql = null;
+		if(winLose.equals("win")) {
+			sql = "UPDATE deck2 SET win = win + 1 WHERE id = " + id;
+		}else {
+		    sql = "UPDATE deck2 SET lose = lose + 1 WHERE id = " + id;
+		}
+	return executeSql(sql);
+	}
+	
 	
 	public int delete(int id) {
 	String sql = "DELETE FROM deck2 WHERE id = " + id;

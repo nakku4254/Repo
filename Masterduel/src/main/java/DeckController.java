@@ -16,21 +16,30 @@ public class DeckController extends HttpServlet {
 
 	    req.setCharacterEncoding("utf-8");
 	    String action = req.getParameter("action");
-	    String[] deckIdName = req.getParameter("deck").split(" ");
-	    String deckId = deckIdName[0];
-	    String deckName = deckIdName[1];
+
 	    
 	    
 	    if(!(action == null)) {
 	    	if(action.equals("delete")) {	    		
 	    		RequestDispatcher rd = req.getRequestDispatcher("/deckDeleteConfirm.jsp");
+	    	    String[] deckIdName = req.getParameter("deck").split(" ");
+	    	    String deckId = deckIdName[0];
+	    	    String deckName = deckIdName[1];
 	    		req.setAttribute("deckName", deckName);
 	    		req.setAttribute("deckId", deckId);	
 	    		rd.forward(req, res);
 	    	}else if(action.equals("create")) {
 	    		RequestDispatcher rd = req.getRequestDispatcher("/deckCreateForm.jsp");
 	    		rd.forward(req, res);
-	    	}else {
+	    	}else if(action.equals("update")) {
+	    		RequestDispatcher rd = req.getRequestDispatcher("/deckWinLoseForm.jsp");
+	    	    String[] deckIdName = req.getParameter("deck").split(" ");
+	    	    String deckId = deckIdName[0];
+	    	    String deckName = deckIdName[1];
+	    		req.setAttribute("deckName", deckName);
+	    		req.setAttribute("deckId", deckId);
+    		    rd.forward(req, res);
+	    	}else if(action.equals("read")){
 	    		
 	    	}
 	    }
