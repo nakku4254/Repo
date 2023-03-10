@@ -16,6 +16,8 @@ public class DeckController extends HttpServlet {
 
 	    req.setCharacterEncoding("utf-8");
 	    String action = req.getParameter("action");
+	    DAO ddao = new DAO();
+	    DeckDTO ddto = ddao.select();
 
 	    
 	    
@@ -40,7 +42,9 @@ public class DeckController extends HttpServlet {
 	    		req.setAttribute("deckId", deckId);
     		    rd.forward(req, res);
 	    	}else if(action.equals("read")){
-	    		
+	    		RequestDispatcher rd = req.getRequestDispatcher("/deckRecordList.jsp");
+	    		req.setAttribute("ddto", ddto);
+    		    rd.forward(req, res);
 	    	}
 	    }
   }

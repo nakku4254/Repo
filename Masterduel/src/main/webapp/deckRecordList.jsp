@@ -27,14 +27,13 @@
   </tr>
 <% } %>
 
-<h2><%= action %></h2>
 </table><br />
 
+<form action="/Masterduel/ViewServlet" method="get">
+  <input type="submit" value="対戦履歴">
+</form>
 
 
-
-
-<h1>doPostを使って表示されている</h1>
 
 
 
