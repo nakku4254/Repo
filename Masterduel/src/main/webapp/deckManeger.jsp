@@ -26,13 +26,5 @@
 <input type="submit" value="送信">
 
 
-
-	<h1>doGetメソッドを使って表示されている</h1>
-	
-
-
-
-
-
 </body>
 </html>
